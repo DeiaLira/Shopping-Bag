@@ -1,6 +1,6 @@
 <template>
 
-    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg border-bottom border-body">
       <div class="menu container-fluid">
         <a class="navbar-brand" href="#">
           <img src="../assets/img/logo_andreia_lira2.png" alt="Bootstrap" width="45" height="40">
@@ -8,10 +8,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="itens navbar-nav">
             <li class="nav-item">
-                <router-link class="routerLink" to="/">Home</router-link>
+                <router-link class="routerLink" to="/">HOME</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="routerLink" to="/shoppingCart">Shopping Cart</router-link>
+                <router-link class="routerLink" to="/shoppingCart">SHOPPING CART</router-link>
             </li>
           </ul>
         </div>
@@ -31,14 +31,19 @@
   }
   </script>
   
-  <style lang="sass">
+<style lang="sass">
   
-  nav .menu 
-    max-width: 50%
-    margin: 0 auto
-    .routerLink
-        text-decoration: none
-        color: #ffffff
-        padding: 1rem
+nav
+  background-color: #E6C744
+  img
+    border-radius: 50%
+
+.menu 
+  max-width: 50%
+  margin: 0 auto
+  .routerLink
+    text-decoration: none
+    color: #000000
+    padding: 1rem
   
-  </style>
+</style>
