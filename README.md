@@ -1,4 +1,4 @@
-# shopping
+# Shopping_Bag
 
 ## Project setup
 ```
