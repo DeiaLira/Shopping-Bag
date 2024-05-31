@@ -1,23 +1,22 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/HomePage.vue'
-import Basket from '../views/ShoppingBasket.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import homePage from '../views/homePage.vue'
+import shoppingCart from '../views/shoppingCart.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'homePage',
+    component: homePage
   },
   {
-    path: '/basket',
-    name: 'Basket',
-    component: Basket
-  },
-  
+    path: '/shoppingCart',
+    name: 'shoppingCart',
+    component: shoppingCart
+  }
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(process.env.BASE_URL),
   routes
 })
 
