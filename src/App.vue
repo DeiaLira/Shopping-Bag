@@ -1,16 +1,19 @@
 <template>
   
   <navMenu />
+  <footerBasic />
 
 </template>
 
 <script>
 import navMenu from './components/navMenu.vue'
+import footerBasic from './components/footerBasic.vue'
 
 export default {
   name: 'App',
   components: {
     navMenu,
+    footerBasic
   }
 }
 

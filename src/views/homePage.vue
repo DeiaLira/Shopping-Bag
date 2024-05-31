@@ -46,7 +46,49 @@
       <img src="../assets/img/Empresa3.png" alt="">
       <img src="../assets/img/Empresa4.png" alt="">
     </div>
+
+    <h1>Products List</h1>
+
     <div class="products">
+      <div class="card">
+        <img src="../assets/img/Empresa1.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text text-center"> Camisa </p>
+            <p class="text-center"> R$ </p>
+            <div class="quantity-area text-center ">
+              <button>-</button>
+              <span class="quantity"> 0 </span>
+              <button>+</button>
+            </div>
+          </div>
+      </div>
+
+      <div class="card">
+        <img src="../assets/img/Empresa1.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text text-center"> Camisa </p>
+            <p class="text-center"> R$ </p>
+            <div class="quantity-area text-center ">
+              <button>-</button>
+              <span class="quantity"> 0 </span>
+              <button>+</button>
+            </div>
+          </div>
+      </div>
+
+      <div class="card">
+        <img src="../assets/img/Empresa1.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text text-center"> Camisa </p>
+            <p class="text-center"> R$ </p>
+            <div class="quantity-area text-center ">
+              <button>-</button>
+              <span class="quantity"> 0 </span>
+              <button>+</button>
+            </div>
+          </div>
+      </div>
+
       <div class="card">
         <img src="../assets/img/Empresa1.png" class="card-img-top" alt="...">
           <div class="card-body">
@@ -126,6 +168,8 @@ export default {
 //-----Main Products Style-----// 
 
 .mainProducts
+  h1
+    margin: 3rem 0
   .brands
     display: flex
     justify-content: space-around
@@ -137,10 +181,13 @@ export default {
   
 .products
   display: flex
-  margin: 2rem 0
   justify-content: space-evenly
+  flex-wrap: wrap
+  max-width: 80%
+  margin: 0 auto
   .card
-    max-width: 16%
+    max-width: 24%
+    margin: 2rem 1%
      
 
 </style>
