@@ -58,9 +58,10 @@
           <p class="card-text text-center" :title="product.title"> {{ product.title.substring(0,18) }} ... </p>
           <p class="text-center"> R$ {{ product.price.toFixed(2) }} </p>
           <div class="quantity-area text-center ">
-            <button>-</button>
-            <span class="quantity"> 0 </span>
-            <button>+</button>
+            <button v-if="!isInBag(product)" @click="addToBag(product)" type="button" class="btn btn-primary">Add to Bag</button>
+            <div class="removeToBag" v-if="isInBag(product)">
+              <a href="">Remove item from bag</a>
+            </div>
           </div>
         </div>
     </div>
@@ -82,7 +83,23 @@ export default {
   computed: {
     products () {
       return this.$store.state.products
+    },
+
+    bagProducts () {
+      return this.$store.state.bagProducts;
     }
+
+  },
+  methods: {
+    addToBag(product) {
+      product.quantity = 1;
+      this.$store.dispatch('addToBag', product);
+    },
+
+    isInBag(product) {
+      return this.bagProducts.find(item => item.id == product.id);
+    }
+
   }
 }
 </script>
@@ -140,7 +157,10 @@ export default {
         height: 100%
         object-fit: cover
         object-position: center
-
+    .removeToBag
+      margin: 1rem 0
+    button
+      margin: 1rem 0
 
      
 
