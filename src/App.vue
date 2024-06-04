@@ -14,6 +14,10 @@ export default {
   components: {
     navMenu,
     footerBasic
+  },
+
+  created() {
+    this.$store.dispatch('loadProducts');
   }
 }
 

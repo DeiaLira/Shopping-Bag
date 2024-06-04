@@ -50,83 +50,21 @@
     <h1>Products List</h1>
 
     <div class="products">
-      <div class="card">
-        <img src="../assets/img/Empresa1.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text text-center"> Camisa </p>
-            <p class="text-center"> R$ </p>
-            <div class="quantity-area text-center ">
-              <button>-</button>
-              <span class="quantity"> 0 </span>
-              <button>+</button>
-            </div>
+      <div class="card" v-for="(product, index) in products" :key="index">
+        <div class="card-img-container">
+          <img :src="product.image" class="card-img-top w-100 p-2" alt="product.">
+        </div>
+        <div class="card-body">
+          <p class="card-text text-center" :title="product.title"> {{ product.title.substring(0,18) }} ... </p>
+          <p class="text-center"> R$ {{ product.price.toFixed(2) }} </p>
+          <div class="quantity-area text-center ">
+            <button>-</button>
+            <span class="quantity"> 0 </span>
+            <button>+</button>
           </div>
-      </div>
+        </div>
+    </div>
 
-      <div class="card">
-        <img src="../assets/img/Empresa1.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text text-center"> Camisa </p>
-            <p class="text-center"> R$ </p>
-            <div class="quantity-area text-center ">
-              <button>-</button>
-              <span class="quantity"> 0 </span>
-              <button>+</button>
-            </div>
-          </div>
-      </div>
-
-      <div class="card">
-        <img src="../assets/img/Empresa1.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text text-center"> Camisa </p>
-            <p class="text-center"> R$ </p>
-            <div class="quantity-area text-center ">
-              <button>-</button>
-              <span class="quantity"> 0 </span>
-              <button>+</button>
-            </div>
-          </div>
-      </div>
-
-      <div class="card">
-        <img src="../assets/img/Empresa1.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text text-center"> Camisa </p>
-            <p class="text-center"> R$ </p>
-            <div class="quantity-area text-center ">
-              <button>-</button>
-              <span class="quantity"> 0 </span>
-              <button>+</button>
-            </div>
-          </div>
-      </div>
-
-      <div class="card">
-        <img src="../assets/img/Empresa1.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text text-center"> Camisa </p>
-            <p class="text-center"> R$ </p>
-            <div class="quantity-area text-center ">
-              <button>-</button>
-              <span class="quantity"> 0 </span>
-              <button>+</button>
-            </div>
-          </div>
-      </div>
-
-      <div class="card">
-        <img src="../assets/img/Empresa1.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text text-center"> Camisa </p>
-            <p class="text-center"> R$ </p>
-            <div class="quantity-area text-center ">
-              <button>-</button>
-              <span class="quantity"> 0 </span>
-              <button>+</button>
-            </div>
-          </div>
-      </div>
     </div>
 
   </section>
@@ -140,6 +78,11 @@ export default {
   name: 'homePage',
   components: {
     
+  },
+  computed: {
+    products () {
+      return this.$store.state.products
+    }
   }
 }
 </script>
@@ -186,8 +129,19 @@ export default {
   max-width: 80%
   margin: 0 auto
   .card
-    max-width: 24%
+    max-width: 16%
     margin: 2rem 1%
+    .card-img-container
+      width: 100%
+      height: 300px // Define a altura fixa desejada para as imagens
+      overflow: hidden
+      img
+        width: 80%
+        height: 100%
+        object-fit: cover
+        object-position: center
+
+
      
 
 </style>
