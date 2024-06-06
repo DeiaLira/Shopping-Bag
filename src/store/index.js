@@ -17,8 +17,15 @@ export default createStore({
 
     AddToBag(state, product) {
       state.bagProducts.push(product);
+    },
 
-     }
+    removeToBag(state, productId) {
+
+      //console.log(alert('Deseja excluir o produto do carrinho?'))
+
+      const updateBag = state.bagProducts.filter(item => productId != item.id);
+      state.bagProducts = updateBag;
+    },
   },
 
   actions: {
@@ -33,11 +40,15 @@ export default createStore({
 
     addToBag({commit}, product) {
       commit('AddToBag', product);
+    },
+
+    removeToBag({commit}, productId) {
+      commit('removeToBag', productId);
     }
 
   },
 
   modules: {
   }
-  
+
 })

@@ -50,7 +50,7 @@
     <h1>Products List</h1>
 
     <div class="products">
-      <div class="card" v-for="(product, index) in products" :key="index">
+      <div class="card" v-for="(product, index) in products" :key="index" :class="{inBag : isInBag(product)}">
         <div class="card-img-container">
           <img :src="product.image" class="card-img-top w-100 p-2" alt="product.">
         </div>
@@ -59,9 +59,7 @@
           <p class="text-center"> R$ {{ product.price.toFixed(2) }} </p>
           <div class="quantity-area text-center ">
             <button v-if="!isInBag(product)" @click="addToBag(product)" type="button" class="btn btn-primary">Add to Bag</button>
-            <div class="removeToBag" v-if="isInBag(product)">
-              <a href="">Remove item from bag</a>
-            </div>
+            <button v-if="isInBag(product)" type="button" class="btn btn-danger" @click="removeToBag(product.id)">Remove from bag</button>
           </div>
         </div>
     </div>
@@ -72,24 +70,22 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 // @ is an alias to /src
 
 
 export default {
+
   name: 'homePage',
   components: {
     
   },
-  computed: {
-    products () {
-      return this.$store.state.products
-    },
 
-    bagProducts () {
-      return this.$store.state.bagProducts;
-    }
+  computed: mapState ([
+    'products', 'bagProducts'
+  ]),
 
-  },
   methods: {
     addToBag(product) {
       product.quantity = 1;
@@ -98,7 +94,14 @@ export default {
 
     isInBag(product) {
       return this.bagProducts.find(item => item.id == product.id);
-    }
+    },
+
+    removeToBag(productId) {
+      if (confirm('Deseja retirar o produto do carrinho?')) {
+        this.$store.dispatch('removeToBag', productId);
+      }
+
+    },
 
   }
 }
@@ -140,6 +143,8 @@ export default {
       border-radius: 50%
   
 .products
+  .inBag
+    border: 1px solid blue
   display: flex
   justify-content: space-evenly
   flex-wrap: wrap
