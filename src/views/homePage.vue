@@ -62,8 +62,7 @@
             <button v-if="isInBag(product)" type="button" class="btn btn-danger" @click="removeToBag(product.id)">Remove from bag</button>
           </div>
         </div>
-    </div>
-
+      </div>
     </div>
 
   </section>
@@ -115,6 +114,7 @@ export default {
 //-----Carrossel Style-----//
 
 .featuredProducts
+  padding-top: 4rem 
   max-width: 55%
   margin: 2rem auto
 

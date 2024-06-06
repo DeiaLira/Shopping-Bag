@@ -20,13 +20,12 @@ export default createStore({
     },
 
     removeToBag(state, productId) {
-
       //console.log(alert('Deseja excluir o produto do carrinho?'))
-
       const updateBag = state.bagProducts.filter(item => productId != item.id);
       state.bagProducts = updateBag;
-    },
+    }
   },
+
 
   actions: {
 

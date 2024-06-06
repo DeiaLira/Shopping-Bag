@@ -32,7 +32,8 @@
 
     computed: mapState ([
     'products', 'bagProducts'
-  ]),
+    ]),
+
   }
   </script>
   
