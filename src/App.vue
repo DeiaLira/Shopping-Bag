@@ -18,6 +18,7 @@ export default {
 
   created() {
     this.$store.dispatch('loadProducts');
+    this.$store.dispatch('loadBag');
   }
 }
 
